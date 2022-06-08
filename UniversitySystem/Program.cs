@@ -2,23 +2,26 @@
 using SchoolSystem.DbContext;
 using UniversitySystem.Model;
 using UniversitySystem.Repositories.EntityRepos;
-
+using UniversitySystem.Repositories.GenericCoreImpl;
 
 DbData dbData = new DbData("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=DemoTest;Data Source=CRLHL-ALIIKHAI1");
 
 StudentsRepository studentsRepository = new StudentsRepository(dbData);
 TeacherRepository teacherRepository = new TeacherRepository(dbData);
 DepartmentRepository departmentRepository = new DepartmentRepository(dbData);
+GenericLinqCrud<Students> genericLinq = new GenericLinqCrud<Students>();
+Departments departments3 = new Departments(5, "Physics");
 
+Students student = new Students { Name = "Ali", Age = 21, Departments = departments3 };
+
+genericLinq.Add(student);
 
 //Departments departments = new Departments("CS");
 //Departments departments1 = new Departments("Math");
 //Departments departments2 = new Departments("Physics");
-Departments departments3 = new Departments(5, "Physics" );
-departmentRepository.Remove(departments3);
+//departmentRepository.Remove(departments3);
 
 
-//Students student = new Students { Name = "Ali", Age = 21, Departments = departments };
 //Students student1 = new Students { Name = "Ahmed", Age = 20, Departments = departments1 };
 //Students student2 = new Students { Name = "Test", Age = 22, Departments = departments2 };
 //Students student3 = new Students { Name = "Jhon", Age = 23};
