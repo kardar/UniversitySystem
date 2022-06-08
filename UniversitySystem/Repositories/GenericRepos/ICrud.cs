@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace UniversitySystem.Repositories
+namespace UniversitySystem.Repositories.GenericRepos
 {
     internal interface ICrud<TEntity> where TEntity : class
     {
@@ -17,5 +17,7 @@ namespace UniversitySystem.Repositories
         void Add(TEntity entity);
 
         void Remove(TEntity entity);
+
+        void Update(TEntity entity);
     }
 }

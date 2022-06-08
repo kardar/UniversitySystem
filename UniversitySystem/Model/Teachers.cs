@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace UniversitySystem.Model
 {
-    internal class Teachers
+    internal class Teachers : BaseEntity
     {
-        public int Id { get; set; }
+        public int YearsOfService { get; set; }
 
-        public string Name { get; set; }
+        public int Salary { get; set; }
 
-        public int YearOfService { get; set; }
+        public string Education { get; set; }
 
         public ICollection<Students> Students { get; set; }
     }

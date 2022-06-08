@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UniversitySystem.Model;
+using UniversitySystem.Repositories.GenericRepos;
 
-namespace UniversitySystem.Repositories
+namespace UniversitySystem.Repositories.EntityRepos
 {
     internal class DepartmentRepository : CrudRepository<Departments>
     {

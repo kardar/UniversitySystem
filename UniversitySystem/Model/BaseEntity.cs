@@ -6,7 +6,16 @@ using System.Threading.Tasks;
 
 namespace UniversitySystem.Model
 {
-    internal class BaseEntity
+    internal abstract class BaseEntity
     {
+        public int Id { get; set; }
+
+        public  string Name { get; set; }
+
+        public int Age { get; set; }
+
+        public string Address { get; set; }
+
+
     }
 }

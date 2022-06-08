@@ -8,9 +8,10 @@ namespace UniversitySystem.Model
 {
     internal class Departments
     {
-        public Departments(string name)
+        public Departments(int id, string name)
         {
             Name = name;
+            Id = id;
         }
 
         public int Id { get; set; }
