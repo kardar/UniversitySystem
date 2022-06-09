@@ -4,6 +4,8 @@ using UniversitySystem.Model;
 using UniversitySystem.Repositories.EntityRepos;
 using UniversitySystem.Repositories.GenericCoreImpl;
 
+ 
+
 DbData dbData = new DbData("Integrated Security=SSPI;Persist Security Info=False;Initial Catalog=DemoTest;Data Source=CRLHL-ALIIKHAI1");
 
 StudentsRepository studentsRepository = new StudentsRepository(dbData);
@@ -12,14 +14,36 @@ DepartmentRepository departmentRepository = new DepartmentRepository(dbData);
 GenericLinqCrud<Students> genericLinq = new GenericLinqCrud<Students>();
 Departments departments3 = new Departments(5, "Physics");
 
-Students student = new Students { Name = "Ali", Age = 21, Departments = departments3 };
+Teachers teachers = new Teachers { Name = "Ahmed", Age = 22, Address = "Address test", Education = "Maters", Salary = 200,  YearsOfService = 4 };
+Students student = new Students(
 
-genericLinq.Add(student);
 
-//Departments departments = new Departments("CS");
-//Departments departments1 = new Departments("Math");
+     "Bilal",
+      20,
+     "Main City 6th Avenue",
+     3,
+     5,
+     departments3
+
+
+    );
+
+
+//Departments departments = new Departments {Name = "CS" };
 //Departments departments2 = new Departments("Physics");
-//departmentRepository.Remove(departments3);
+
+
+
+//studentsRepository.Add(student);
+//dbData.Dispose();
+//Console.WriteLine(studentsRepository.Get(3));
+dbData.Students.Attach(student);
+studentsRepository.Remove(student);
+
+dbData.SaveChanges();
+
+
+ 
 
 
 //Students student1 = new Students { Name = "Ahmed", Age = 20, Departments = departments1 };
@@ -28,7 +52,7 @@ genericLinq.Add(student);
 
 
 //studentsRepository.Add(student);
-Teachers teachers = new Teachers { Name = "Ahmed", Age = 22, YearsOfService = 4};
+//Teachers teachers = new Teachers { Name = "Ahmed", Age = 22, YearsOfService = 4};
 //teachers.Students = new Students[] { student1, student2 };
 //departments1.Teachers = new Teachers[] { teachers };
 

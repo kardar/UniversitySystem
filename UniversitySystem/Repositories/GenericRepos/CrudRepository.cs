@@ -19,12 +19,20 @@ namespace UniversitySystem.Repositories.GenericRepos
         }
         public void Add(TEntity entity)
         {
-            Context.Set<TEntity>().Add(entity);
-        }
 
-        public IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate)
-        {
-            return Context.Set<TEntity>().Where(predicate);
+            try
+            {
+                if(entity == null)
+                {
+                    throw new ArgumentNullException("entity");
+                }
+                Context.Set<TEntity>().Add(entity);
+            }catch
+            {
+                Console.WriteLine("Entity not saved");
+            }
+
+            
         }
 
         public TEntity Get(int id)
@@ -39,7 +47,7 @@ namespace UniversitySystem.Repositories.GenericRepos
 
         public void Remove(TEntity entity)
         {
-            Context.Set<TEntity>().Remove(entity);
+            this.Context.Set<TEntity>().Remove(entity);
         }
 
         public void Update(TEntity entity)
